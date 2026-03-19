@@ -1,0 +1,26 @@
+/*
+    FONT CUSTOM (MAPLE MONO)
+    Faré servir aquesta font principalment per icones de
+    Nerd Fonts, per títols de seccions i per missatges 
+    d'error.
+*/
+@font-face {
+    font-family: MapleMono;
+    src: url(/assets/fonts/MapleMono-NF-Regular.ttf);
+}
+
+:root {
+    font-family: Helvetica, Ubuntu, Arial, sans-serif;
+    --base-colour: #27232b;
+    --bg-colour: #141216;
+    --selected-bg-colour: #d8cab8;
+    --text-colour: #d8cab8;
+    --selected-colour: #141216;
+    --link-colour: #4b2697;
+    --accent_bg_color: #ac82e9;
+    
+}
+
+h1, h2 {
+    font-family: MapleMono, monospace;
+}
