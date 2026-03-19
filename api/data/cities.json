@@ -1,0 +1,62 @@
+[
+    {
+        "name": "Barcelona",
+        "country": "Spain",
+        "country_abb": "ES",
+        "latitude": "41.3874",
+        "longitude": "2.1686",
+        "currency": "Euro",
+        "currency_abb": "EUR",
+        "currency_symbol": "€"
+    },
+    {
+        "name": "London",
+        "country": "United Kingdom of Great Britain and Northern Ireland",
+        "country_abb": "UK",
+        "latitude": "51.5072",
+        "longitude": "0.1276",
+        "currency": "Sterling Pound",
+        "currency_abb": "GBP",
+        "currency_symbol": "£"
+    },
+    {
+        "name": "Paris",
+        "country": "France",
+        "country_abb": "FR",
+        "latitude": "48.8575",
+        "longitude": "2.3514",
+        "currency": "Euro",
+        "currency_abb": "EUR",
+        "currency_symbol": "€"
+    },
+    {
+        "name": "New York",
+        "country": "United States of America",
+        "country_abb": "US",
+        "latitude": "40.7128",
+        "longitude": "-74.0060",
+        "currency": "US Dollar",
+        "currency_abb": "USD",
+        "currency_symbol": "$"
+    },
+    {
+        "name": "Tokyo",
+        "country": "Japan",
+        "country_abb": "JP",
+        "latitude": "35.6764",
+        "longitude": "139.6500",
+        "currency": "Yen",
+        "currency_abb": "JPY",
+        "currency_symbol": "￥"
+    },
+    {
+        "name": "Amsterdam",
+        "country": "The Netherlands",
+        "country_abb": "NL",
+        "latitude": "52.3676",
+        "longitude": "4.9041",
+        "currency": "Euro",
+        "currency_abb": "EUR",
+        "currency_symbol": "€"
+    }
+]
