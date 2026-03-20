@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +10,41 @@
 </head>
 <body>
     <header>
-        <h2>&#60161; Destinacions</h2>
-        <h2>󰖕 El Temps</h2>
-        <h2>&#61676; Conversor de Divises</h2>
     </header>
+    <main>
+        <section id="destination-select">
+            <form id="destination-selection-form">
+                <label for="destination-select">
+                    <h2>Destination:</h2>
+                </label>
+                <select name=destination-select" id="destination-select">
+                </select>
+            </form>
+        </section>
+        
+        <section id="weather" class="content-card" hidden>
+            <h2 id="selected-city-weather"></h2>
+            <p class="selected-temp"></p>
+            <p id="rain-prob"></p>
+        </section>
+        <section id="currency-converter" class="content-card" hidden>
+            <h2 id="selected-city-converter"></h2>
+            <form id="currency-converter-form">
+                <label for="currency-input">
+                    <p></p>
+                </label>
+                <input id="converter-quantity" type="text" class="currency-input" name="currency-input" />
+                <select name="currency-input" id="from-currency">
+                </select>
+            </form>
+        </section>
+        <section id="destination-resume" class="content-card">
+            <h2 id="selected-city"></h2>
+            <p id="selected-country"></p>
+            <p class="selected-temp"></p>
+            <p class="selected-currency"></p>
+        </section>
+
+    </main>
 </body>
 </html>
