@@ -29,5 +29,16 @@ function stringNormaliser (s) {
     return s;
 }
 
+/**
+ * Returns the relevant information to add to the city details screen.
+ * @param {String} cityName The selected city.
+ */
+function fetchCityDetails(cityName) {
+    const selectedCity = citiesData.find((element) => element.name == cityName);
+    console.log(selectedCity);
+}
+
 console.log("cities data: " , citiesData);
-loadCitiesForSelect()
+loadCitiesForSelect();
+
+fetchCityDetails("Barcelona");
