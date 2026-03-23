@@ -101,20 +101,43 @@ function buildUrl(lat, lon) {
 
 /**
  * Fetches weather data from Open-Meteo for given coordinates.
- * @param {Number} lat The target latitude.
- * @param {Number} lon The target longitude.
+ * @param {number} lat
+ * @param {number} lon
+ * @returns {Promise<Object>}
  */
 async function fetchWeather(lat, lon) {
     const url = buildUrl(lat, lon);
     const response = await fetch(url);
-    const data = response.json();
 
+    if (!response.ok) {
+        throw new Error(`API error: ${response.status} ${response.statusText}`);
+    }
+
+    return response.json();
+}
+
+
+async function processWeatherData(data, extendedSize) {
+    
     if (!response.ok) {
         throw new Error(`API error: ${response.status}: ${response.statusText}`);
     }
+    
+    const { temp, wind, weathercode, time, is_day } = data.current_weather;
+    const weatherIcon = getWeatherIcon(weathercode);
 
-    const { temp, windspeed, weathercode, time, is_day } = data;
-    console.log(data)
+    if (!extendedSize) {
+        const pill = document.createElement("div");
+        pill.className = "weather-pill";
+        pill.setAttribute("role", "region");
+
+        const conditionLabel = document.createElement("p");
+        conditionLabel.className = "weather-condition";
+        conditionLabel.textContent = `${weatherIcon.icon} ${weatherIcon.label}`;
+
+
+
+    }
 
 }
 
