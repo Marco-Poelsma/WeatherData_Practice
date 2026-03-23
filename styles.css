@@ -17,12 +17,13 @@
     --text-colour: #d8cab8;
     --selected-colour: #141216;
     --link-colour: #4b2697;
-    --accent_bg_color: #ac82e9;
+    --accent_bg_colour: #ac82e9;
     
 }
 
-h1, h2 {
+h1, h2, .selected-country-id {
     font-family: MapleMono, monospace;
+    color: var(--text-colour)
 }
 
 a {
@@ -35,7 +36,7 @@ a {
     border-width: 1px;
     border-radius: 10px;
     border-style: solid;
-    border-color: var(--accent_bg_color);
+    border-color: var(--accent_bg_colour);
     width: 95vw;
     margin: 0 auto;
     padding: 1em;
@@ -47,11 +48,11 @@ select {
     border-width: 1px;
     border-radius: 10px;
     border-style: solid;
-    border-color: var(--accent_bg_color);
+    border-color: var(--accent_bg_colour);
 }
 
 option {
-    background-color: var(--accent_bg_color);
+    background-color: var(--accent_bg_colour);
     color: var(--link-colour)
 }
 
@@ -59,4 +60,17 @@ body {
     background-color: var(--bg-colour);
     color: var(--text-colour);
     align-self: center;
+}
+
+.data-pill {
+    background-color: var(--link-colour);
+    color: var(--text-colour);
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    padding: 0 1em;
+    border-radius: 1em;
+    gap: 1em;
+    margin: 0.5em;
+    margin-left: 0;
 }
