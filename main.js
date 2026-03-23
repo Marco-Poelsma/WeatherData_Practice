@@ -1,6 +1,6 @@
 const citiesResponse = await fetch("http://127.0.0.1:5500/api/data/cities.json");
 const citiesData = await citiesResponse.json();
-const citySelect = document.querySelector("#destination-select");
+const citySelect = document.querySelector("#destination-dropdown");
 
 /**
  * Function to load all city names on the JSON for the select.

@@ -24,3 +24,39 @@
 h1, h2 {
     font-family: MapleMono, monospace;
 }
+
+a {
+    color: var(--link-colour);
+}
+
+.content-card {
+    background-color: var(--base-colour);
+    color: var(--text-colour);
+    border-width: 1px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: var(--accent_bg_color);
+    width: 95vw;
+    margin: 0 auto;
+    padding: 1em;
+}
+
+select {
+    background-color: var(--base-colour);
+    color: var(--text-colour);
+    border-width: 1px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: var(--accent_bg_color);
+}
+
+option {
+    background-color: var(--accent_bg_color);
+    color: var(--link-colour)
+}
+
+body {
+    background-color: var(--bg-colour);
+    color: var(--text-colour);
+    align-self: center;
+}
