@@ -30,17 +30,25 @@ function stringNormaliser (s) {
 }
 
 /**
- * Returns the relevant information to add to the city details screen.
- * @param {String} cityId The selected city.
+ * Returns the details of a city.
+ * @param {String} cityId The city's id.
+ * @returns The selected city.
  */
 function fetchCityDetails(cityId) {
-    const selectedCity = citiesData.find((element) => stringNormaliser(element.name) == cityId);
+    const selectedCity = citiesData.find((element) => stringNormaliser(element.name) == cityId); //Find which element in our JSON matches the requested city's ID.
     console.log(selectedCity);
+    return selectedCity;
 }
 
 console.log("cities data: " , citiesData);
 loadCitiesForSelect();
 
-citySelect.addEventListener("change", function(e) {
-    fetchCityDetails(this.value);
-})
+citySelect.addEventListener("change", function(e) { //Update selected city on change to the value of the select.
+    const c = fetchCityDetails(this.value);
+    const detailsHeader = document.querySelector("#selected-city");
+    detailsHeader.innerHTML = c.name;
+    const selectedCountry = document.querySelector(".selected-country");
+    const selectedCountryId = document.querySelector(".selected-country-id");
+    selectedCountry.innerHTML = c.country;
+    selectedCountryId.innerHTML = c.country_abb;
+});
