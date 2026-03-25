@@ -82,6 +82,11 @@ citySelect.addEventListener("change", function(e) { //Update selected city on ch
     const selectedCountryId = document.querySelector(".selected-country-id");
     selectedCountry.innerHTML = c.country;
     selectedCountryId.innerHTML = c.country_abb;
+    
+    const weatherPill = document.querySelector(".selected-temp");
+    weatherPill.innerHTML = processWeatherData(fetchWeather(c.latitude, c.longitude), false);
+
+    const description= document.querySelector("#city-description")
 });
 
 function getWeatherIcon(code) {
@@ -140,5 +145,3 @@ async function processWeatherData(data, extendedSize) {
     }
 
 }
-
-fetchWeather(40, 40);

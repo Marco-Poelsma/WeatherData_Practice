@@ -7,7 +7,8 @@
         "longitude": "2.1686",
         "currency": "Euro",
         "currency_abb": "EUR",
-        "currency_symbol": "€"
+        "currency_symbol": "€",
+        "description": "BARCELONA_DESCRIPTION"
     },
     {
         "name": "London",
@@ -17,7 +18,8 @@
         "longitude": "0.1276",
         "currency": "Sterling Pound",
         "currency_abb": "GBP",
-        "currency_symbol": "£"
+        "currency_symbol": "£",
+        "description": "LONDON_DESCRIPTION"
     },
     {
         "name": "Paris",
@@ -27,17 +29,19 @@
         "longitude": "2.3514",
         "currency": "Euro",
         "currency_abb": "EUR",
-        "currency_symbol": "€"
+        "currency_symbol": "€",
+        "description": "PARIS_DESCRIPTION"
     },
     {
         "name": "New York",
-        "country": "United States of America",
+        "country": "United States",
         "country_abb": "US",
         "latitude": "40.7128",
         "longitude": "-74.0060",
         "currency": "US Dollar",
         "currency_abb": "USD",
-        "currency_symbol": "$"
+        "currency_symbol": "$",
+        "description": "NYC_DESCRIPTION"
     },
     {
         "name": "Tokyo",
@@ -47,7 +51,8 @@
         "longitude": "139.6500",
         "currency": "Yen",
         "currency_abb": "JPY",
-        "currency_symbol": "￥"
+        "currency_symbol": "￥",
+        "description": "TOKYO_DESCRIPTION"
     },
     {
         "name": "Amsterdam",
@@ -57,6 +62,7 @@
         "longitude": "4.9041",
         "currency": "Euro",
         "currency_abb": "EUR",
-        "currency_symbol": "€"
+        "currency_symbol": "€",
+        "description": "AMSTERDAM_DESCRIPTION"
     }
 ]
