@@ -8,7 +8,7 @@
         "currency": "Euro",
         "currency_abb": "EUR",
         "currency_symbol": "€",
-        "description": "BARCELONA_DESCRIPTION"
+        "description": "Barcelona is a city with a wide range of original leisure options that encourage you to visit time and time again. Overlooking the Mediterranean Sea, and famous for Gaudí and other Art Nouveau architecture, Barcelona is one of Europe’s trendiest cities."
     },
     {
         "name": "London",
@@ -19,7 +19,7 @@
         "currency": "Sterling Pound",
         "currency_abb": "GBP",
         "currency_symbol": "£",
-        "description": "LONDON_DESCRIPTION"
+        "description": "With an 800-year history, the City of London mixes Roman ruins with modern icons. The area is home to some of London’s most popular attractions, including Tower Bridge and St Paul’s Cathedral, as well as iconic modern buildings such as 'The Gherkin' and 'The Cheesegrater'. Explore fascinating and unusual museums, find world-class art at its galleries and relax in green spaces, bars, restaurants and shops."
     },
     {
         "name": "Paris",
@@ -30,7 +30,7 @@
         "currency": "Euro",
         "currency_abb": "EUR",
         "currency_symbol": "€",
-        "description": "PARIS_DESCRIPTION"
+        "description": "Paris is a world in itself. Each of its neighborhoods feels like a different country waiting to be explored, from Montmartre to the Latin Quarter, passing iconic landmarks such as Notre-Dame Cathedral, the Eiffel Tower, the Arc de Triomphe, the Champs-Élysées, and the Jardin des Plantes. Every stone tells a story of art and culture, from the Louvre Museum to the futuristic Louis Vuitton Foundation. Paris is also a celebration of gastronomy and creativity, something chefs like Alain Ducasse and Pierre Hermé would certainly agree with."
     },
     {
         "name": "New York",
@@ -41,7 +41,7 @@
         "currency": "US Dollar",
         "currency_abb": "USD",
         "currency_symbol": "$",
-        "description": "NYC_DESCRIPTION"
+        "description": "Feel the energy of New York City, a playground for all types of travelers. Wander through buzzing entertainment districts, taste cuisine from around the world and learn something new at accoladed institutions — there’s always something new to do in the city that never sleeps."
     },
     {
         "name": "Tokyo",
@@ -52,7 +52,7 @@
         "currency": "Yen",
         "currency_abb": "JPY",
         "currency_symbol": "￥",
-        "description": "TOKYO_DESCRIPTION"
+        "description": "Tokyo, the capital of Japan, is vibrant as a city that leads Japan and the world. One of the attractions of Tokyo is that people from various regions and countries gather and interact with each other, and there is a tendency for many cultures to merge and to create new things. The Imperial Palace and Japanese state institutions are gathered together, occupying a particularly important position in Japan."
     },
     {
         "name": "Amsterdam",
@@ -63,6 +63,6 @@
         "currency": "Euro",
         "currency_abb": "EUR",
         "currency_symbol": "€",
-        "description": "AMSTERDAM_DESCRIPTION"
+        "description": "Amsterdam is an eclectic blend of old-world charm and modern, liberal ideas. The city is known for its many famous art museums and historical buildings as well as for its night clubs and its red-light district. The progressive Dutch policies and attitudes on same-sex marriage, recreational drugs, alcohol, and prostitution have given the city an international reputation for tolerance."
     }
 ]

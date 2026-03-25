@@ -56,7 +56,7 @@ function loadCitiesForSelect() {
  */
 function stringNormaliser (s) {
     s = s.toLowerCase();
-    s = s.replace('/ /g', '-');
+    s = s.replace(/ /g, '-');
     return s;
 }
 
@@ -74,7 +74,7 @@ function fetchCityDetails(cityId) {
 console.log("cities data: " , citiesData);
 loadCitiesForSelect();
 
-citySelect.addEventListener("change", function(e) { //Update selected city on change to the value of the select.
+citySelect.addEventListener("change", async function(e) { //Update selected city on change to the value of the select.
     const c = fetchCityDetails(this.value);
     const detailsHeader = document.querySelector("#selected-city");
     detailsHeader.innerHTML = c.name;
@@ -82,11 +82,18 @@ citySelect.addEventListener("change", function(e) { //Update selected city on ch
     const selectedCountryId = document.querySelector(".selected-country-id");
     selectedCountry.innerHTML = c.country;
     selectedCountryId.innerHTML = c.country_abb;
+    const selectedCityDesc = document.querySelector("#city-description");
+    selectedCityDesc.innerHTML = `<p>${c.description}</p>`
     
-    const weatherPill = document.querySelector(".selected-temp");
-    weatherPill.innerHTML = processWeatherData(fetchWeather(c.latitude, c.longitude), false);
+    try {
+        const weatherData = await fetchWeather(c.latitude, c.longitude);
+        await processWeatherData(weatherData, false);
+    } catch (error) {
+        console.error('Error fetching weather:', error);
+        const weatherPill = document.querySelector("#selected-temp");
+        weatherPill.innerHTML = '<span>Weather data unavailable</span>';
+    }
 
-    const description= document.querySelector("#city-description")
 });
 
 function getWeatherIcon(code) {
@@ -124,24 +131,16 @@ async function fetchWeather(lat, lon) {
 
 async function processWeatherData(data, extendedSize) {
     
-    if (!response.ok) {
-        throw new Error(`API error: ${response.status}: ${response.statusText}`);
-    }
-    
     const { temp, wind, weathercode, time, is_day } = data.current_weather;
+    console.log(data.current_weather);
     const weatherIcon = getWeatherIcon(weathercode);
 
     if (!extendedSize) {
-        const pill = document.createElement("div");
-        pill.className = "weather-pill";
-        pill.setAttribute("role", "region");
-
-        const conditionLabel = document.createElement("p");
-        conditionLabel.className = "weather-condition";
-        conditionLabel.textContent = `${weatherIcon.icon} ${weatherIcon.label}`;
-
-
-
+        const pill = document.querySelector("#selected-temp");
+        pill.innerHTML = `
+            <span class="selected-weather-icon">${weatherIcon.icon}</span>
+            <span class="selected-temp-value">${temp}°C</span>
+        `;
     }
 
 }
