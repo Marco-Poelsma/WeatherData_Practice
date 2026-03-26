@@ -21,9 +21,9 @@
     
 }
 
-h1, h2, .selected-country-id, .selected-weather-icon {
+h1, h2, .data-pills {
     font-family: MapleMono, monospace;
-    color: var(--text-colour)
+    color: var(--text-colour);
 }
 
 a {
@@ -73,4 +73,11 @@ body {
     gap: 1em;
     margin: 0.5em;
     margin-left: 0;
+    flex-wrap: nowrap;
+}
+
+.data-pills {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
