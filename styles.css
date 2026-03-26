@@ -21,7 +21,7 @@
     
 }
 
-h1, h2, .selected-country-id {
+h1, h2, .selected-country-id, .selected-weather-icon {
     font-family: MapleMono, monospace;
     color: var(--text-colour)
 }

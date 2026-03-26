@@ -131,7 +131,7 @@ async function fetchWeather(lat, lon) {
 
 async function processWeatherData(data, extendedSize) {
     
-    const { temp, wind, weathercode, time, is_day } = data.current_weather;
+    const { temperature, wind, weathercode, time, is_day } = data.current_weather;
     console.log(data.current_weather);
     const weatherIcon = getWeatherIcon(weathercode);
 
@@ -139,7 +139,7 @@ async function processWeatherData(data, extendedSize) {
         const pill = document.querySelector("#selected-temp");
         pill.innerHTML = `
             <span class="selected-weather-icon">${weatherIcon.icon}</span>
-            <span class="selected-temp-value">${temp}°C</span>
+            <span class="selected-temp-value">${temperature}°C</span>
         `;
     }
 
