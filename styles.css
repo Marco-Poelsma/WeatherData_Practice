@@ -81,3 +81,22 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
 }
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+nav > span {
+    padding: 0.5em 2em;
+    width: 33.334vw;
+    text-align: center;
+
+}
+
+nav > span:hover {
+    background-color: var(--accent_bg_colour);
+    color: var(--base-colour);
+    transition: 0.25s;
+}
