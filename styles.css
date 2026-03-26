@@ -92,11 +92,19 @@ nav > span {
     padding: 0.5em 2em;
     width: 33.334vw;
     text-align: center;
+    cursor: pointer;
 
 }
 
-nav > span:hover {
+nav > span:hover:not([data-active]) {
     background-color: var(--accent_bg_colour);
     color: var(--base-colour);
     transition: 0.25s;
+}
+
+nav > [data-active] {
+    border-bottom: 2px solid var(--accent_bg_colour);
+    cursor:auto;
+    pointer-events: none;
+
 }
