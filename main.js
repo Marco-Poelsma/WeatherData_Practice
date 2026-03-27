@@ -156,5 +156,8 @@ const navBar = document.querySelector("nav");
 navBar.addEventListener("click", (event) => {
     const focusedElement = event.target.closest("span");
     if (!focusedElement) return;
-    
+    for (const el of navBar.querySelectorAll("span")) {
+        el.setAttribute('data-active', false);
+    }
+    focusedElement.setAttribute('data-active', true);
 });
