@@ -71,12 +71,8 @@ citySelect.addEventListener("change", async function (e) {
   const selectedCurrency = dataPills.querySelector("#selected-currency");
 
   if (selectedCurrency){
-    // lo edito...
     selectedCurrency.remove();
   }
-    //
-    
-    // crear el elemento:
     const currencyData = document.createElement("div");
     currencyData.className="data-pill"
     currencyData.id="selected-currency"
@@ -154,3 +150,11 @@ async function processWeatherData(data, extendedSize) {
         `;
   }
 }
+
+const navBar = document.querySelector("nav");
+
+navBar.addEventListener("click", (event) => {
+    const focusedElement = event.target.closest("span");
+    if (!focusedElement) return;
+    
+});
