@@ -107,3 +107,25 @@ nav > [data-active='true'] {
     cursor:auto;
     pointer-events: none;
 }
+
+#currency-converter-form {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    column-gap: 0.5em;
+    row-gap: 1.5em;
+}
+
+.currency-input {
+    background-color: var(--bg-colour);
+    border-radius: 1em;
+    border-color: var(--accent_bg_colour);
+    border-style: solid;
+    color: var(--text-colour);
+    padding-left: 0.5em;
+}
+
+.currency-input:focus {
+    background-color: var(--selected-colour);
+    border-color: var(--selected-bg-colour);
+}

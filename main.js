@@ -161,3 +161,21 @@ navBar.addEventListener("click", (event) => {
     }
     focusedElement.setAttribute('data-active', true);
 });
+
+
+/**
+ * Function to load all currency codes on the JSON for the select.
+ */
+function loadCurrenciesForSelect() {
+  let null_opt = document.createElement("option"); // Default null option
+  null_opt.value = "";
+  null_opt.innerHTML = "Choose a Destination";
+  citySelect.appendChild(null_opt);
+  for (const c of citiesData) {
+    //Iterate over cities in dataset.
+    const opt = document.createElement("option");
+    opt.value = stringNormaliser(c.name);
+    opt.innerHTML = c.name;
+    citySelect.appendChild(opt);
+  }
+}
