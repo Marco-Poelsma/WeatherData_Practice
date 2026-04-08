@@ -3,7 +3,8 @@ const citiesResponse = await fetch(
 );
 const citiesData = await citiesResponse.json();
 const citySelect = document.querySelector("#destination-dropdown");
-
+const currencySelect1 = document.querySelector("#from-currency");
+const currencySelect2 = document.querySelector("#to-currency");
 import { WMO_CODES } from "./wmo-codes.js";
 
 /**
@@ -167,15 +168,21 @@ navBar.addEventListener("click", (event) => {
  * Function to load all currency codes on the JSON for the select.
  */
 function loadCurrenciesForSelect() {
-  let null_opt = document.createElement("option"); // Default null option
-  null_opt.value = "";
-  null_opt.innerHTML = "Choose a Destination";
-  citySelect.appendChild(null_opt);
+  const loadedCurrencies = [];
+
   for (const c of citiesData) {
-    //Iterate over cities in dataset.
-    const opt = document.createElement("option");
-    opt.value = stringNormaliser(c.name);
-    opt.innerHTML = c.name;
-    citySelect.appendChild(opt);
+    if (!loadedCurrencies.includes(c.currency_abb)) {
+      const opt = document.createElement("option");
+      opt.value = c.currency_abb;
+      console.log(opt.value)
+      opt.innerHTML = `${c.currency} (${c.currency_abb})`;
+      
+      currencySelect1.appendChild(opt);
+      currencySelect2.appendChild(opt);
+
+      loadedCurrencies.push(c.currency_abb)
+    }
   }
 }
+
+loadCurrenciesForSelect();
