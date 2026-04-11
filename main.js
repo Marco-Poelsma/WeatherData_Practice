@@ -178,7 +178,16 @@ function loadCurrenciesForSelect() {
       opt.innerHTML = `${c.currency} (${c.currency_abb})`;
       
       currencySelect1.appendChild(opt);
-      currencySelect2.appendChild(opt);
+
+      // Re-using the other variable doesn't work, so I will just make another opt for the other select
+      // This is not optimised for memory usage, but it'll work for now.
+      // MARK: TODO: Optimise memory usage if you have time later on.
+      const optTwo = document.createElement("option");
+      optTwo.value = c.currency_abb;
+      console.log(optTwo.value)
+      optTwo.innerHTML = `${c.currency} (${c.currency_abb})`;
+
+      currencySelect2.appendChild(optTwo);
 
       loadedCurrencies.push(c.currency_abb)
     }
