@@ -218,3 +218,17 @@ async function fetchCurrencyConversionRates(currencyCode) {
 
   return response.json();
 }
+
+const currencyInputOne = document.querySelector("#converter-quantity");
+const currencyInputTwo = document.querySelector("#converter-quantity-2")
+
+const currencySelectOne = document.querySelector("#from-currency");
+const currencySelectTwo = document.querySelector("#to-currency");
+
+currencyInputOne.addEventListener("input", function() {
+  currencyInputTwo.value = this.value;
+})
+
+currencyInputTwo.addEventListener("input", function() {
+  currencyInputOne.value = this.value;
+})
