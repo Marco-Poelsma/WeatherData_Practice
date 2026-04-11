@@ -116,7 +116,7 @@ function getWeatherIcon(code) {
  * @param {number} lon
  * @returns {string}
  */
-function buildUrl(lat, lon) {
+function buildWeatherUrl(lat, lon) {
   const BASE_URL = "https://api.open-meteo.com/v1/forecast";
   return `${BASE_URL}?latitude=${lat}&longitude=${lon}&current_weather=true`;
 }
@@ -128,7 +128,7 @@ function buildUrl(lat, lon) {
  * @returns {Promise<Object>}
  */
 async function fetchWeather(lat, lon) {
-  const url = buildUrl(lat, lon);
+  const url = buildWeatherUrl(lat, lon);
   const response = await fetch(url);
 
   if (!response.ok) {
@@ -184,14 +184,26 @@ function loadCurrenciesForSelect() {
       // MARK: TODO: Optimise memory usage if you have time later on.
       const optTwo = document.createElement("option");
       optTwo.value = c.currency_abb;
-      console.log(optTwo.value)
+      console.log(optTwo.value);
       optTwo.innerHTML = `${c.currency} (${c.currency_abb})`;
 
       currencySelect2.appendChild(optTwo);
 
-      loadedCurrencies.push(c.currency_abb)
+      loadedCurrencies.push(c.currency_abb);
     }
   }
 }
 
 loadCurrenciesForSelect();
+
+
+/**
+ * 
+ * @param {String} currencyCode Value of the first select on the currency converter.
+ * @returns URL to appropiate endpoint for the selected currency's conversion rates.
+ */
+function buildCurrencyUrl(currencyCode) {
+  const BASE_CURRENCY_URL = "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/";
+  const normalisedCurrencyCode = stringNormaliser(currencyCode);
+  return `${BASE_CURRENCY_URL}${normalisedCurrencyCode}`;
+}
