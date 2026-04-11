@@ -132,7 +132,7 @@ async function fetchWeather(lat, lon) {
   const response = await fetch(url);
 
   if (!response.ok) {
-    throw new Error(`API error: ${response.status} ${response.statusText}`);
+    throw new Error(`Weather API error: ${response.status} ${response.statusText}`);
   }
 
   return response.json();
@@ -206,4 +206,15 @@ function buildCurrencyUrl(currencyCode) {
   const BASE_CURRENCY_URL = "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/";
   const normalisedCurrencyCode = stringNormaliser(currencyCode);
   return `${BASE_CURRENCY_URL}${normalisedCurrencyCode}`;
+}
+
+async function fetchCurrencyConversionRates(currencyCode) {
+  const url = buildCurrencyUrl(currencyCode);
+  const response = await fetch(url);
+  
+  if (!response.ok) {
+    throw new Error(`Currency API Error: ${response.status} ${response.statusText}`);
+  }
+
+  return response.json();
 }
