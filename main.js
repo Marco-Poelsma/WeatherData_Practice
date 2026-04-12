@@ -205,7 +205,7 @@ loadCurrenciesForSelect();
 function buildCurrencyUrl(currencyCode) {
   const BASE_CURRENCY_URL = "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/";
   const normalisedCurrencyCode = stringNormaliser(currencyCode);
-  return `${BASE_CURRENCY_URL}${normalisedCurrencyCode}`;
+  return `${BASE_CURRENCY_URL}${normalisedCurrencyCode}.json`;
 }
 
 async function fetchCurrencyConversionRates(currencyCode) {
@@ -224,11 +224,31 @@ const currencyInputTwo = document.querySelector("#converter-quantity-2")
 
 const currencySelectOne = document.querySelector("#from-currency");
 const currencySelectTwo = document.querySelector("#to-currency");
+let fromCurrency;
+let toCurrency;
 
-currencyInputOne.addEventListener("input", function() {
-  currencyInputTwo.value = this.value;
-})
+currencyInputOne.addEventListener("input", async function() {
+  fromCurrency = stringNormaliser(currencySelectOne.value);
+  toCurrency = stringNormaliser(currencySelectTwo.value);
 
-currencyInputTwo.addEventListener("input", function() {
-  currencyInputOne.value = this.value;
+  const conversionRates = await fetchCurrencyConversionRates(fromCurrency);
+
+  const targetRate = conversionRates[fromCurrency][toCurrency];
+  console.log(targetRate);
+
+
+  currencyInputTwo.value = (Math.round(this.value * targetRate * 100) / 100).toFixed(2);
+});
+
+currencyInputTwo.addEventListener("input", async function() {
+  fromCurrency = stringNormaliser(currencySelectTwo.value);
+  toCurrency = stringNormaliser(currencySelectOne.value);
+
+  const conversionRates = await fetchCurrencyConversionRates(fromCurrency);
+
+  const targetRate = conversionRates[fromCurrency][toCurrency];
+  console.log(targetRate);
+
+
+  currencyInputOne.value = (Math.round(this.value * targetRate * 100) / 100).toFixed(2)
 })
