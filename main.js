@@ -6,6 +6,7 @@ const citySelect = document.querySelector("#destination-dropdown");
 const currencySelect1 = document.querySelector("#from-currency");
 const currencySelect2 = document.querySelector("#to-currency");
 import { WMO_CODES } from "./wmo-codes.js";
+import { renderWeatherCard } from "./weatherCardUtilFunctions.js";
 
 /**
  * Function to load all city names on the JSON for the select.
@@ -118,7 +119,7 @@ function getWeatherIcon(code) {
  */
 function buildWeatherUrl(lat, lon) {
   const BASE_URL = "https://api.open-meteo.com/v1/forecast";
-  return `${BASE_URL}?latitude=${lat}&longitude=${lon}&current_weather=true`;
+  return `${BASE_URL}?latitude=${lat}&longitude=${lon}&current_weather=true&hourly=precipitation_probability&forecast_days=1&wind_speed_unit=kmh`;
 }
 
 /**
@@ -139,17 +140,27 @@ async function fetchWeather(lat, lon) {
 }
 
 async function processWeatherData(data, extendedSize) {
-  const { temperature, wind, weathercode, time, is_day } = data.current_weather;
+  const { temperature, windspeed, winddirection, weathercode, time, is_day } = data.current_weather;
   console.table(data.current_weather);
   const weatherIcon = getWeatherIcon(weathercode);
 
-  if (!extendedSize) {
-    const pill = document.querySelector("#selected-temp");
-    pill.innerHTML = `
-        <span class="selected-weather-icon">${weatherIcon.icon}</span>
-        <span class="selected-temp-value">${temperature}°C</span>
-        `;
+  // Update the mini pill in the details card
+  const pill = document.querySelector("#selected-temp");
+  pill.innerHTML = `
+    <span class="selected-weather-icon">${weatherIcon.icon}</span>
+    <span class="selected-temp-value">${temperature}°C</span>
+  `;
+
+  // Get current-hour precipitation probability
+  let rainProb = null;
+  if (data.hourly && data.hourly.time && data.hourly.precipitation_probability) {
+    const now = new Date(time);
+    const currentHour = now.getHours();
+    rainProb = data.hourly.precipitation_probability[currentHour] ?? data.hourly.precipitation_probability[0];
   }
+
+  // Render full weather card
+  renderWeatherCard({ temperature, windspeed, winddirection, weathercode, weatherIcon, rainProb });
 }
 
 const navBar = document.querySelector("nav");

@@ -138,3 +138,99 @@ nav > [data-active='true'] {
 option {
     overflow: hidden;
 }
+
+.weather-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25em;
+  margin-top: 0.75em;
+}
+
+.weather-main {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.weather-big-icon {
+  font-family: MapleMono, monospace;
+  font-size: 3.5rem;
+  line-height: 1;
+  padding-right: 1em;
+  color: var(--accent_bg_colour);
+}
+
+.weather-temp-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.weather-temp {
+  font-family: MapleMono, monospace;
+  font-size: 2.75rem;
+  line-height: 1;
+  color: var(--text-colour);
+  letter-spacing: -0.03em;
+}
+
+.weather-unit {
+  font-size: 1.5rem;
+  color: var(--accent_bg_colour);
+}
+
+.weather-condition {
+  font-family: MapleMono, monospace;
+  font-size: 0.8rem;
+  color: var(--accent_bg_colour);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 0.1em;
+}
+
+.weather-stats {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+
+.weather-stat {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  background-color: var(--bg-colour);
+  border: 1px solid var(--accent_bg_colour);
+  border-radius: 0.75em;
+  padding: 0.5em 1em;
+  flex: 1;
+  min-width: 120px;
+}
+
+.weather-stat-icon {
+  font-family: MapleMono, monospace;
+  font-size: 1.4rem;
+  color: var(--accent_bg_colour);
+  line-height: 1;
+  padding-right: 1em;
+}
+
+.weather-stat-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.weather-stat-label {
+  font-family: MapleMono, monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent_bg_colour);
+}
+
+.weather-stat-value {
+  font-family: MapleMono, monospace;
+  font-size: 0.95rem;
+  color: var(--text-colour);
+}
