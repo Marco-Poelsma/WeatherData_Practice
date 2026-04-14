@@ -36,26 +36,27 @@ export function windDegToArrow(deg) {
 export function renderWeatherCard({ temperature, windspeed, winddirection, weathercode, weatherIcon, rainProb }) {
   const section = document.querySelector("#weather");
   
-  const header = document.createElement("h2");
-  section.appendChild(header);
-  
+
+  const h2 = document.createElement("h2");
+  h2.id = "selected-city-weather";
+  section.appendChild(h2);
+
   const weatherCard = document.createElement("div");
   weatherCard.classList.add("weather-card");
-  header.append(weatherCard);
+  section.appendChild(weatherCard);
 
   const weatherMain = document.createElement("div");
   weatherMain.classList.add("weather-main");
   weatherCard.appendChild(weatherMain);
 
-  const bigWeatherIcon = document.createELement("span");
-  bigWeatherIcon.classList.add("weather-big-icon");
-  bigWeatherIcon.classList.add("maple-icon");
+  const bigWeatherIcon = document.createElement("span");
+  bigWeatherIcon.classList.add("weather-big-icon", "maple-icon");
   bigWeatherIcon.innerHTML = weatherIcon.icon;
   weatherMain.appendChild(bigWeatherIcon);
 
   const weatherTempBlock = document.createElement("div");
   weatherTempBlock.classList.add("weather-temp-block");
-  bigWeatherIcon.append(weatherTempBlock);
+  weatherMain.appendChild(weatherTempBlock);
 
   const weatherTemp = document.createElement("span");
   weatherTemp.classList.add("weather-temp");
@@ -64,54 +65,64 @@ export function renderWeatherCard({ temperature, windspeed, winddirection, weath
 
   const tempUnit = document.createElement("span");
   tempUnit.classList.add("weather-unit");
-  tempUnit.innerHTML = "ºC";
+  tempUnit.innerHTML = "°C";
   weatherTemp.appendChild(tempUnit);
 
   const weatherCondition = document.createElement("span");
   weatherCondition.classList.add("weather-condition");
-  weatherCondition.innerHTML = weatherIcon.icon;
-  weatherTemp.append(weatherCondition);
+  weatherCondition.innerHTML = weatherIcon.label;
+  weatherTempBlock.appendChild(weatherCondition);
 
   const weatherStats = document.createElement("div");
   weatherStats.classList.add("weather-stats");
-  weatherMain.append(weatherStats);
+  weatherCard.appendChild(weatherStats);
 
-  const rainProbability = document.createElement("div");
-  rainProbability.classList.add("eather-stat");
-  weatherStats.appendChild(rainProbability);
+  // Rain stat
+  const rainStat = document.createElement("div");
+  rainStat.classList.add("weather-stat");
+  weatherStats.appendChild(rainStat);
 
-  const rainProbabilityIcon = document.createElement("span");
-  rainProbabilityIcon.classList.add("eather-stat-icon");
-  rainProbabilityIcon.classList.add("maple-icon");
-  rainProbabilityIcon.innerHTML = rainProb !== null ? rainProb + "%" : "N/A"; // lambda function. Displays rain probability if it exists within the response JSON.
-  rainProbabilityIcon
+  const rainIcon = document.createElement("span");
+  rainIcon.classList.add("weather-stat-icon", "maple-icon");
+  rainIcon.innerHTML = "\ue318";
+  rainStat.appendChild(rainIcon);
 
-  section.innerHTML = `
-    <h2 id="selected-city-weather">Weather</h2>
-    <div class="weather-card">
-      <div class="weather-main">
-        <span class="weather-big-icon maple-icon">${weatherIcon.icon}</span>
-        <div class="weather-temp-block">
-          <span class="weather-temp">${temperature}<span class="weather-unit">°C</span></span>
-          <span class="weather-condition">${weatherIcon.label}</span>
-        </div>
-      </div>
-      <div class="weather-stats">
-        <div class="weather-stat">
-          <span class="weather-stat-icon maple-icon">\ue318</span>
-          <div class="weather-stat-detail">
-            <span class="weather-stat-label">Rain Probabilty</span>
-            <span class="weather-stat-value">${rainProb !== null ? rainProb + "%" : "N/A"}</span>
-          </div>
-        </div>
-        <div class="weather-stat">
-          <span class="weather-stat-icon maple-icon">${windDegToArrow(winddirection)}</span>
-          <div class="weather-stat-detail">
-            <span class="weather-stat-label">Wind</span>
-            <span class="weather-stat-value">${windspeed} km/h ${windDegToCompass(winddirection)}</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
+  const rainDetail = document.createElement("div");
+  rainDetail.classList.add("weather-stat-detail");
+  rainStat.appendChild(rainDetail);
+
+  const rainLabel = document.createElement("span");
+  rainLabel.classList.add("weather-stat-label");
+  rainLabel.innerHTML = "Rain Probability";
+  rainDetail.appendChild(rainLabel);
+
+  const rainValue = document.createElement("span");
+  rainValue.classList.add("weather-stat-value");
+  rainValue.innerHTML = rainProb !== null ? rainProb + "%" : "N/A";
+  rainDetail.appendChild(rainValue);
+
+  // Wind stat
+  const windStat = document.createElement("div");
+  windStat.classList.add("weather-stat");
+  weatherStats.appendChild(windStat);
+
+  const windIcon = document.createElement("span");
+  windIcon.classList.add("weather-stat-icon", "maple-icon");
+  windIcon.innerHTML = windDegToArrow(winddirection);
+  windStat.appendChild(windIcon);
+
+  const windDetail = document.createElement("div");
+  windDetail.classList.add("weather-stat-detail");
+  windStat.appendChild(windDetail);
+
+  const windLabel = document.createElement("span");
+  windLabel.classList.add("weather-stat-label");
+  windLabel.innerHTML = "Wind";
+  windDetail.appendChild(windLabel);
+
+  const windValue = document.createElement("span");
+  windValue.classList.add("weather-stat-value");
+  windValue.innerHTML = `${windspeed} km/h ${windDegToCompass(winddirection)}`;
+  windDetail.appendChild(windValue);
+
 }
