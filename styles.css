@@ -353,3 +353,84 @@ header > h1 {
     width: 100vw;
     margin: 0.5em 0;
 }
+
+@media screen and (min-width: 900px) {
+    body {
+        display: grid;
+        grid-template-areas: 
+            "header header"
+            "nav main";
+        grid-template-columns: 350px 1fr;
+        grid-template-rows: 4rem 1fr;
+        min-height: 100vh;
+        padding-bottom: 0;
+        background-color: var(--bg-colour);
+    }
+
+    header {
+        grid-area: header;
+        border-bottom: 1px solid var(--accent_bg_colour);
+    }
+
+    nav {
+        grid-area: nav;
+        flex-direction: column;
+        justify-content: center;
+        border-right: 1px solid var(--accent_bg_colour);
+        padding: auto 0;
+        align-items: center;
+        height: 100%;
+        background-color: var(--base-colour);
+        z-index: -1;
+        width: 350px;
+        height: 100vh;
+        padding-bottom: 5em;
+    }
+
+    nav > span {
+        width: 100%;
+        text-align: left;
+        padding: 1em 2em;
+    }
+
+    nav > [data-active='true'] {
+        border-bottom: none;
+        border-right: 4px solid var(--accent_bg_colour);
+        background-color: var(--bg-colour);
+    }
+
+    main {
+        grid-area: main;
+        padding: 2em;
+    }
+
+    .content-card {
+        width: 100%;
+        margin: 0;
+        
+    }
+
+    #destination-select {
+        margin-bottom: 2em;
+    }
+
+    #destination-selection-header {
+        padding-left: 0;
+    }
+
+    #destination-dropdown {
+        max-width: 400px;
+        width: 100%;
+    }
+
+    #recommendation-banner {
+        left: 350px;
+        padding-bottom: 1em;
+        box-shadow: none;
+    }
+
+    #rec-inner {
+        margin: 0;
+        max-width: none;
+    }
+}
