@@ -234,3 +234,122 @@ option {
   font-size: 0.95rem;
   color: var(--text-colour);
 }
+
+body {
+    padding-bottom: 80px;
+}
+
+#recommendation-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background-color: var(--base-colour);
+    border-top: 1px solid var(--accent_bg_colour);
+    box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.4);
+    padding-bottom: 2em;
+}
+
+#rec-inner {
+    display: flex;
+    align-items: center;
+    gap: 0.85em;
+    padding: 0.7em 1.25em;
+    max-width: 960px;
+    margin: 0 auto;
+    min-height: 62px;
+}
+
+#rec-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    width: 2rem;
+    text-align: center;
+    color: var(--accent_bg_colour);
+    line-height: 1;
+    transition: opacity 0.4s ease;
+}
+
+#rec-body {
+    flex: 1;
+    min-width: 0;
+}
+
+#rec-label {
+    display: block;
+    font-family: MapleMono, monospace;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent_bg_colour);
+    margin-bottom: 0.15em;
+}
+
+#rec-text {
+    font-size: 0.875rem;
+    color: var(--text-colour);
+    line-height: 1.4;
+    margin: 0;
+}
+
+#rec-text strong {
+    color: var(--accent_bg_colour);
+    font-weight: 600;
+}
+
+#rec-dots {
+    display: flex;
+    gap: 5px;
+    flex-shrink: 0;
+    align-items: center;
+    padding-left: 0.5em;
+}
+
+.rec-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--link-colour);
+    transition: background-color 0.4s ease, transform 0.3s ease;
+}
+
+.rec-dot--active {
+    background-color: var(--accent_bg_colour);
+    transform: scale(1.25);
+}
+
+/* 
+ * MARK: Fade transitions
+ */
+@keyframes recFadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to   { opacity: 1; transform: translateY(0);   }
+}
+
+@keyframes recFadeOut {
+    from { opacity: 1; transform: translateY(0);    }
+    to   { opacity: 0; transform: translateY(-5px); }
+}
+
+.rec-fade-in {
+    animation: recFadeIn 0.45s ease forwards;
+}
+
+.rec-fade-out {
+    animation: recFadeOut 0.38s ease forwards;
+}
+
+header > h1 {
+    padding: 0.25em;
+}
+
+#destination-selection-header {
+    padding-left: 1em;
+}
+
+#destination-dropdown {
+    padding: 0.5em;
+    width: 100vw;
+    margin: 0.5em 0;
+}
